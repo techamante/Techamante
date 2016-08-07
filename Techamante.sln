@@ -3,11 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Techamante", "Techamante\Techamante.shproj", "{8DC89731-FEA8-4E31-A204-36EC4462E089}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techamante.Base", "Techamante.Base\Techamante.Base.csproj", "{090AD483-A802-433E-B9ED-13329654A11B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techamante.Base.Tests", "Techamante.Base.Tests\Techamante.Base.Tests.csproj", "{3E0F4E6A-39BE-47D8-A5CF-F95738547E92}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Techamante\Techamante.projitems*{8dc89731-fea8-4e31-a204-36ec4462e089}*SharedItemsImports = 13
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{090AD483-A802-433E-B9ED-13329654A11B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{090AD483-A802-433E-B9ED-13329654A11B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{090AD483-A802-433E-B9ED-13329654A11B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{090AD483-A802-433E-B9ED-13329654A11B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E0F4E6A-39BE-47D8-A5CF-F95738547E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E0F4E6A-39BE-47D8-A5CF-F95738547E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E0F4E6A-39BE-47D8-A5CF-F95738547E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E0F4E6A-39BE-47D8-A5CF-F95738547E92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

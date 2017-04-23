@@ -34,13 +34,13 @@ namespace Techamante.Domain.Validations
             foreach(var validator in validators)
             {
                 IEnumerable<string> borkenRules = null;
-                entity.Validate(validator, out brokenRules);
+                entity.Validate(validator, out bRules);
             }
 
 
 
 
-            return entity.Validate(validator, out brokenRules);
+            throw new NotImplementedException();
         }
     }
 }

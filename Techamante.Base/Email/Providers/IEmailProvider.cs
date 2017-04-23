@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Techamante.Base.Email.Providers
+namespace Techamante.Email.Providers
 {
     public interface IEmailProvider
     {

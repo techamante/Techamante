@@ -7,7 +7,7 @@ using Mandrill;
 using Mandrill.Models;
 using Mandrill.Requests.Messages;
 
-namespace Techamante.Base.Email.Providers
+namespace Techamante.Email.Providers
 {
     public class MandrillProvider:IEmailProvider
     {

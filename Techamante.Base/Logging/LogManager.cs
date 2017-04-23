@@ -2,7 +2,7 @@
 using log4net;
 using log4net.Config;
 
-namespace Techamante.Base.Logging
+namespace Techamante.Logging
 {
 
     public class LogManager

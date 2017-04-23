@@ -2,7 +2,7 @@
 using Castle.Core.Internal;
 using Castle.DynamicProxy;
 
-namespace Techamante.Base.SimpleInjector.Interception
+namespace Techamante.SimpleInjector.Interception
 {
     public class InterceptionHook:IProxyGenerationHook
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Castle.DynamicProxy;
 
-namespace Techamante.Base.SimpleInjector.Interception
+namespace Techamante.SimpleInjector.Interception
 {
     public abstract class InterceptAttribute:Attribute
     {

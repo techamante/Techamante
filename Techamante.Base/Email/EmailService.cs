@@ -4,11 +4,11 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using Techamante.Base.Email.Builders;
-using Techamante.Base.Email.Parameters;
-using Techamante.Base.Email.Providers;
+using Techamante.Email.Builders;
+using Techamante.Email.Parameters;
+using Techamante.Email.Providers;
 
-namespace Techamante.Base.Email
+namespace Techamante.Email
 {
     public class EmailService
     {

@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace Techamante.Base.Email.Builders
+namespace Techamante.Email.Builders
 {
     public abstract class BaseMailMessageBuilder {
         public abstract MailMessage BuildMessage(BaseEmailParameters parameters);

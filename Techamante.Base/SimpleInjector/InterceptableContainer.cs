@@ -5,9 +5,9 @@ using System.Reflection;
 using Castle.Core.Internal;
 using Castle.DynamicProxy;
 using SimpleInjector;
-using Techamante.Base.SimpleInjector.Interception;
+using Techamante.SimpleInjector.Interception;
 
-namespace Techamante.Base.SimpleInjector
+namespace Techamante.SimpleInjector
 {
     public class InterceptableContainer : Container
     {
@@ -23,7 +23,7 @@ namespace Techamante.Base.SimpleInjector
             this.ExpressionBuilt += (s, e) =>
             {
                 Console.WriteLine(e.RegisteredServiceType);
-
+               
                 var members = e.RegisteredServiceType.FindMembers(MemberTypes.All, BindingFlags.Instance | BindingFlags.Public,
                     new MemberFilter(SearchFilter), "*");
 

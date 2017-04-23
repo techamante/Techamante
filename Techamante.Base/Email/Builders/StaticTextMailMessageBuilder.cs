@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace Techamante.Base.Email.Builders
+namespace Techamante.Email.Builders
 {
     public class StaticTextMailMessageBuilder : BaseMailMessageBuilder {
         public override MailMessage BuildMessage(BaseEmailParameters parameters) {

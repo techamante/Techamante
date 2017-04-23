@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using Castle.DynamicProxy;
 using SimpleInjector;
 
-namespace Techamante.Base.SimpleInjector.Interception
+namespace Techamante.SimpleInjector.Interception
 {
     public static class InterceptorExtensions
     {

@@ -8,7 +8,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.Azure;
 
-namespace Techamante.Base.Storage
+namespace Techamante.Storage
 {
     public class AzureBlobProvider
     {

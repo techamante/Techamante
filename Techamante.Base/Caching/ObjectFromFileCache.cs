@@ -5,10 +5,11 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json;
-using Techamante.Base;
+using Techamante;
 using System.Xml.Serialization;
+using Techamante.Core;
 
-namespace Techamante.Base.Caching
+namespace Techamante.Caching
 {
     public class ObjectFromFileCache : Singleton<ObjectFromFileCache>
     {

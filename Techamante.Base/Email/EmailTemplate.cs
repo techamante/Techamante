@@ -3,7 +3,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Techamante.Base.Email
+namespace Techamante.Email
 {
     [XmlRoot("EmailNotificationTemplate")]
     public class EmailNotificationTemplate {

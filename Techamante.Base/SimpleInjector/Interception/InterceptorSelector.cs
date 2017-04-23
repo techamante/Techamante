@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Castle.DynamicProxy;
+using Techamante.Core.Extensions;
 
-namespace Techamante.Base.SimpleInjector.Interception
+namespace Techamante.SimpleInjector.Interception
 {
     public class InterceptorSelector:IInterceptorSelector
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Mail;
 
-namespace Techamante.Base.Email {
+namespace Techamante.Email {
 	public abstract class BaseEmailParameters {
 		protected BaseEmailParameters(string emailTypeName) {
 			EmailTypeName = emailTypeName;

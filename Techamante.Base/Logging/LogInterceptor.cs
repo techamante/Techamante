@@ -1,7 +1,7 @@
 ﻿using System;
 using Castle.DynamicProxy;
 
-namespace Techamante.Base.Logging
+namespace Techamante.Logging
 {
     public class LogInterceptor : IInterceptor
     {

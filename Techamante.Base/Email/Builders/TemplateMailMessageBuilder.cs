@@ -3,10 +3,10 @@ using System.Linq;
 using System.Net.Mail;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using Techamante.Base.Caching;
+using Techamante.Caching;
 
 
-namespace Techamante.Base.Email.Builders
+namespace Techamante.Email.Builders
 {
     public class TemplateMailMessageBuilder : BaseMailMessageBuilder
     {

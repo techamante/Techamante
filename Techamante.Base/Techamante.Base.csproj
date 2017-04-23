@@ -7,7 +7,7 @@
     <ProjectGuid>{090AD483-A802-433E-B9ED-13329654A11B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Techamante.Base</RootNamespace>
+    <RootNamespace>Techamante</RootNamespace>
     <AssemblyName>Techamante.Base</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -30,17 +30,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.8.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LinqKit.1.1.8.0\lib\net461\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="MailChimp, Version=1.1.88.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MailChimp.NET.1.1.88\lib\net35\MailChimp.dll</HintPath>
@@ -49,6 +56,12 @@
     <Reference Include="Mandrill, Version=2.4.173.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Mandrill.2.4.173\lib\net45\Mandrill.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
@@ -66,6 +79,21 @@
       <HintPath>..\..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
       <Private>True</Private>
@@ -78,6 +106,9 @@
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
       <Private>True</Private>
@@ -86,19 +117,34 @@
       <HintPath>..\..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.2.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.3.2.7\lib\net45\SimpleInjector.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="SimpleInjector, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.3.3.2\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Packaging, Version=3.2.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Packaging.3.2.7\lib\net40-client\SimpleInjector.Packaging.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.3.2\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Packaging, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Packaging.3.3.2\lib\net40-client\SimpleInjector.Packaging.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -108,11 +154,83 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppException.cs" />
-    <Compile Include="BaseObjectFactory.cs" />
     <Compile Include="Caching\ObjectFromFileCache.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="DisplayAttribute.cs" />
+    <Compile Include="Core\AppException.cs" />
+    <Compile Include="Core\BaseObjectFactory.cs" />
+    <Compile Include="Core\DisplayAttribute.cs" />
+    <Compile Include="Core\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Core\Extensions\EnumerableStringExtensions.cs" />
+    <Compile Include="Core\Extensions\EnumExtensions.cs" />
+    <Compile Include="Core\Utilities.cs" />
+    <Compile Include="Data\BaseEntity.cs" />
+    <Compile Include="Data\DataTransferBase.cs" />
+    <Compile Include="Domain\Validations\ErrorMessage.cs" />
+    <Compile Include="Domain\Validations\IValidatable.cs" />
+    <Compile Include="Domain\Validations\IValidator.cs" />
+    <Compile Include="Domain\Validations\ValidationResult.cs" />
+    <Compile Include="Domain\Validations\Validator.cs" />
+    <Compile Include="Patterns\CQS\BaseCommand.cs" />
+    <Compile Include="Patterns\CQS\CommandHandler.cs" />
+    <Compile Include="Web\ApiExceptionHandler.cs" />
+    <Compile Include="Web\ApiExceptionLogger.cs" />
+    <Compile Include="Web\BaseApiController.cs" />
+    <Compile Include="Web\CommandActionValueBinder.cs" />
+    <Compile Include="Web\CommandAttribute.cs" />
+    <Compile Include="Web\CommandBindingHandler.cs" />
+    <Compile Include="Web\CustomDirectRouteProvider.cs" />
+    <Compile Include="Web\QueryOptions.cs" />
+    <Compile Include="Web\Rest\NameValueCollectionExtensions.cs" />
+    <Compile Include="Core\Extensions\ObjectExtensions.cs" />
+    <Compile Include="Core\Extensions\SafeExtensions.cs" />
+    <Compile Include="Core\Extensions\StringExtensions.cs" />
+    <Compile Include="Core\Interfaces\IObjectFactory.cs" />
+    <Compile Include="Patterns\CQS\BaseQuery.cs" />
+    <Compile Include="Patterns\CQS\PagedQuery.cs" />
+    <Compile Include="Patterns\CQS\QueryOptions.cs" />
+    <Compile Include="Patterns\CQS\QueryHandler.cs" />
+    <Compile Include="Patterns\Singleton.cs" />
+    <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Data\Entity.cs" />
+    <Compile Include="Data\Interfaces\ICodeBase.cs" />
+    <Compile Include="Data\Interfaces\IDataContext.cs" />
+    <Compile Include="Data\Interfaces\IDataContextAsync.cs" />
+    <Compile Include="Data\Interfaces\IEntityBase.cs" />
+    <Compile Include="Data\Interfaces\IObjectState.cs" />
+    <Compile Include="Patterns\CQS\Interfaces\IQuery.cs" />
+    <Compile Include="Data\Interfaces\IQueryFluent.cs" />
+    <Compile Include="Patterns\CQS\Interfaces\IQueryHandler.cs" />
+    <Compile Include="Patterns\CQS\Interfaces\IQueryHandlerAsync.cs" />
+    <Compile Include="Data\Interfaces\IQueryObject.cs" />
+    <Compile Include="Patterns\CQS\Interfaces\IQueryProcessor.cs" />
+    <Compile Include="Data\Interfaces\IReadableContext.cs" />
+    <Compile Include="Data\Interfaces\IRepository.cs" />
+    <Compile Include="Data\Interfaces\IRepositoryAsync.cs" />
+    <Compile Include="Data\Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Data\Interfaces\IUnitOfWorkAsync.cs" />
+    <Compile Include="Data\ObjectState.cs" />
+    <Compile Include="Data\QueryFluent.cs" />
+    <Compile Include="Data\QueryObject.cs" />
+    <Compile Include="Patterns\CQS\QueryProcessor.cs" />
+    <Compile Include="Data\Repository.cs" />
+    <Compile Include="Data\StateHelper.cs" />
+    <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Patterns\CQS\CommandDispatcher.cs" />
+    <Compile Include="Patterns\CQS\CommandResult.cs" />
+    <Compile Include="Domain\DataService.cs" />
+    <Compile Include="Domain\DomainEvents.cs" />
+    <Compile Include="Domain\Entity.cs" />
+    <Compile Include="Domain\Error.cs" />
+    <Compile Include="Domain\Interceptors\ValidateModelAttribute.cs" />
+    <Compile Include="Domain\Interceptors\ValidateModelInterceptor.cs" />
+    <Compile Include="Patterns\CQS\Interfaces\ICommand.cs" />
+    <Compile Include="Patterns\CQS\Interfaces\ICommandDispatcher.cs" />
+    <Compile Include="Patterns\CQS\Interfaces\ICommandHandler.cs" />
+    <Compile Include="Patterns\CQS\Interfaces\ICommandResult.cs" />
+    <Compile Include="Domain\Interfaces\IDataService.cs" />
+    <Compile Include="Domain\Interfaces\IDomainEvent.cs" />
+    <Compile Include="Domain\Interfaces\IEventHandler.cs" />
+    <Compile Include="Domain\ValueObject.cs" />
     <Compile Include="Email\BaseEmailParameters.cs" />
     <Compile Include="Email\Builders\BaseMailMessageBuilder.cs" />
     <Compile Include="Email\Builders\StaticTextMailMessageBuilder.cs" />
@@ -122,34 +240,32 @@
     <Compile Include="Email\Parameters\StaticTextEmailParameters.cs" />
     <Compile Include="Email\Providers\IEmailProvider.cs" />
     <Compile Include="Email\Providers\MandrillProvider.cs" />
-    <Compile Include="EnumerableExtensions.cs" />
-    <Compile Include="EnumerableStringExtensions.cs" />
-    <Compile Include="EnumExtensions.cs" />
-    <Compile Include="IRequestFactory.cs" />
+    <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\LogAttribute.cs" />
     <Compile Include="Logging\LogInterceptor.cs" />
     <Compile Include="Logging\LogManager.cs" />
-    <Compile Include="NameValueCollectionExtensions.cs" />
-    <Compile Include="ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestFactory.cs" />
-    <Compile Include="RequestFactoryExtensions.cs" />
-    <Compile Include="RestClientExtensions.cs" />
-    <Compile Include="SafeExtensions.cs" />
     <Compile Include="SimpleInjector\InterceptableContainer.cs" />
     <Compile Include="SimpleInjector\Interception\InterceptAttribute.cs" />
     <Compile Include="SimpleInjector\Interception\InterceptionHook.cs" />
     <Compile Include="SimpleInjector\Interception\InterceptorExtensions.cs" />
     <Compile Include="SimpleInjector\Interception\InterceptorSelector.cs" />
-    <Compile Include="Singleton.cs" />
     <Compile Include="Storage\AzureBlobProvider.cs" />
-    <Compile Include="StringExtensions.cs" />
-    <Compile Include="UnexpectedResponseException.cs" />
-    <Compile Include="UriUtility.cs" />
+    <Compile Include="Web\Rest\IRequestFactory.cs" />
+    <Compile Include="Web\Rest\RequestFactory.cs" />
+    <Compile Include="Web\Rest\RequestFactoryExtensions.cs" />
+    <Compile Include="Web\Rest\RestClientExtensions.cs" />
+    <Compile Include="Web\Rest\UnexpectedResponseException.cs" />
+    <Compile Include="Web\Rest\UriUtility.cs" />
+    <Compile Include="Web\ValidateModelAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="TechamanteArchitecture.dgml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Identity\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

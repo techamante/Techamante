@@ -1,8 +1,8 @@
 ﻿using System;
 using Castle.DynamicProxy;
-using Techamante.Base.SimpleInjector.Interception;
+using Techamante.SimpleInjector.Interception;
 
-namespace Techamante.Base.Logging
+namespace Techamante.Logging
 {
     public class LogAttribute : InterceptAttribute
     {

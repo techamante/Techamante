@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Techamante.Patterns.CQS.Interfaces;
 using Techamante.Data.Interfaces;
+using Techamante.Domain.Interfaces;
 
 namespace Techamante.Patterns.CQS
 {
@@ -18,18 +19,30 @@ namespace Techamante.Patterns.CQS
             UOW = uow;
         }
 
-        protected async Task Execute(Action action, ICommand<ICommandResult> command) 
+        [Logging.Log]
+        protected async Task<TCommandResult> Execute<TCommandResult>(ICommand<TCommandResult> command, Func<Task<IServiceResult>> action)
+            where TCommandResult : ICommandResult, new()
         {
-
+            var commandResult = new TCommandResult();
             try
             {
-                action();
-                await UOW.SaveChangesAsync(command.UserId);
+                UOW.BeginTransaction();
+                var result = await action();
+                if (result.IsSucceeded)
+                {
+                    await UOW.SaveChangesAsync(command.UserId);
+
+                }
+                else
+                {
+                    UOW.Rollback();
+                }
+                return commandResult;
             }
-            catch
+            catch (Exception ex)
             {
-     
                 UOW.Rollback();
+                throw ex;
             }
         }
     }

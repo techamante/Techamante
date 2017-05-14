@@ -14,5 +14,7 @@ namespace Techamante.Data
         public byte[] RowVersion { get; set; }
 
         public DateTimeOffset CreatedDtOffset { get; set; }
+
+
     }
 }

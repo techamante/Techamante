@@ -33,11 +33,10 @@ namespace Techamante.Web
             cmd.TimeStamp = DateTimeOffset.Now;
             try
             {
-                await Dispatcher.DispatchCommandAsync(cmd);
                 if (cmd is ICommand<ICommandResult>)
                 {
                     var command = cmd as ICommand<ICommandResult>;
-                    var result = command.Result;
+                    var result = await Dispatcher.DispatchCommandAsync(command);
                     if (result.IsSucceeded)
                     {
                         return Ok(result);
@@ -48,7 +47,13 @@ namespace Techamante.Web
                         return BadRequest(ModelState);
                     }
                 }
-                return Ok();
+                else if (cmd is ICommand)
+                {
+                    await Dispatcher.DispatchCommandAsync(cmd);
+                    return Ok();
+                }
+
+                return NotFound();
             }
             catch
             {
@@ -67,15 +72,15 @@ namespace Techamante.Web
                 var result = await QueryProcessor.ProcessAsync(query);
                 return Ok(result);
             }
-            catch(AppException ex)
+            catch (AppException ex)
             {
                 return BadRequest(ex.Message);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return InternalServerError();
             }
         }
-
 
         protected override void Dispose(bool disposing)
         {

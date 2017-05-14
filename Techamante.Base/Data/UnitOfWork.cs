@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Techamante.Core.Interfaces;
 using Techamante.Data.Interfaces;
+using Techamante.Domain.Interfaces;
 
 
 
@@ -88,10 +89,6 @@ namespace Techamante.Data
 
         public IRepository<TEntity> Repository<TEntity>() where TEntity : BaseEntity
         {
-            //if (ServiceLocator.IsLocationProviderSet)
-            //{
-            //    return ServiceLocator.Current.GetInstance<IRepository<TEntity>>();
-            //}
 
             return RepositoryAsync<TEntity>();
         }

@@ -10,14 +10,11 @@ namespace Techamante.Patterns.CQS
     public abstract class BaseCommand<TResult> : ICommand<TResult> where TResult : ICommandResult, new()
     {
 
-        public BaseCommand()
-        {
-            Result = new TResult();
-        }
-        public virtual TResult Result { get; }
+        //public virtual TResult Result { get; }
 
         public DateTimeOffset TimeStamp { get; set; }
 
         public int UserId { get; set; }
+
     }
 }

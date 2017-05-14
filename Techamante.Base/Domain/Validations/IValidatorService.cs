@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation.Results;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Techamante.Domain.Validations
 {
-    public interface IValidatable<T>
+    public interface IValidationService
     {
-        bool Validate(IValidator<T> validator, out IEnumerable<string> brokenRules);
+        ValidationResult Validate<T>(T entity) where T : class;
     }
 }

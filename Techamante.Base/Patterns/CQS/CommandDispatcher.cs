@@ -22,11 +22,19 @@ namespace Techamante.Patterns.CQS
 
         public async Task DispatchCommandAsync<TCommand>(TCommand command) where TCommand : class, ICommand
         {
-            var handlers = _objectFactory.GetAll<ICommandHandler<TCommand>>();
+            var handlers = _objectFactory.GetAll<IAsyncCommandHandler<TCommand>>();
             var commandsTasks = new List<Task>();
-            handlers.ToList().ForEach(handler => commandsTasks.Add(handler.ExecuteAsync(command)));
-
+            handlers.ToList().ForEach(handler => commandsTasks.Add(handler.Handle(command)));
             await Task.WhenAll(commandsTasks);
+        }
+
+        public async Task<TResponse> DispatchCommandAsync<TResponse>(ICommand<TResponse> command)
+            where TResponse : ICommandResult
+        {
+            var  handler = _objectFactory.Get<IAsyncCommandHandler<ICommand<TResponse>,TResponse>>();
+            if (handler == null) throw new NotSupportedException("Command not supported");          
+            return await handler.Handle(command);
+            
         }
     }
 }

@@ -1,74 +1,50 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Techamante.Domain.Interfaces;
 
 namespace Techamante.Domain
 {
     public class DomainEvents
     {
         [ThreadStatic]
-        private static List<Delegate> _actions;
-        private static List<Delegate> Actions
+        private static List<IDomainEvent> _domainevents;
+        private static List<IDomainEvent> Events
         {
             get
             {
-                if (_actions == null)
+                if (_domainevents == null)
                 {
-                    _actions = new List<Delegate>();
+                    _domainevents = new List<IDomainEvent>();
                 }
-                return _actions;
+                return _domainevents;
             }
         }
 
-        /// <summary>
-        /// Rejestruje prcedure obsługi zdarzenia.
-        /// </summary>
-        /// <param name="callback">Procedura osbługi zdarzenia.</param>
-        /// <returns></returns>
-        public static IDisposable Register<T>(Action<T> callback)
+
+        public static void Register<T>(T eventArgs) where T : IDomainEvent
         {
-            Actions.Add(callback);
-            return new DomainEventRegistrationRemover(() => Actions.Remove(callback));
+            Events.Add(eventArgs);
         }
 
-        /// <summary>
-        /// Sygnalizuje zdarzenie.
-        /// </summary>
-        public static void Raise<T>(T eventArgs) where T : Interfaces.IDomainEvent
+        public async static Task PublishAsync()
         {
-            var registeredHandlers = Core.BaseObjectFactory.Instance.GetAll<Interfaces.IEventHandler<T>>();
-            foreach (var handler in registeredHandlers)
+            var mediator = Core.BaseObjectFactory.Instance.Get<IMediator>();
+            foreach (var @event in Events)
             {
-                handler.Handle(eventArgs);
+                await mediator.Publish(@event);
             }
-            foreach (Delegate action in Actions)
-            {
-                Action<T> typedAction = action as Action<T>;
-                if (typedAction != null)
-                {
-                    typedAction(eventArgs);
-                }
-            }
+            Flush();
         }
 
-        /// <summary>
-        /// Klasa pomocnicza.
-        /// </summary>
-        private sealed class DomainEventRegistrationRemover : IDisposable
+
+        public static void Flush()
         {
-            private readonly Action _callOnDispose;
-
-            public DomainEventRegistrationRemover(Action toCall)
-            {
-                _callOnDispose = toCall;
-            }
-
-            public void Dispose()
-            {
-                _callOnDispose();
-            }
+            Events.Clear();
         }
+
     }
 }

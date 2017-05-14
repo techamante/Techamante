@@ -7,6 +7,6 @@ namespace Techamante.Patterns.CQS.Interfaces
     {
         bool IsSucceeded { get; }
 
-        IList<Error> Errors { get; }
+        List<Error> Errors { get; }
     }
 }

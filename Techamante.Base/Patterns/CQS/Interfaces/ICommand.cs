@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace Techamante.Patterns.CQS.Interfaces
 {
 
-    public interface ICommand
+    public interface ICommand : IRequest
     {
         int UserId { get; set; }
 
@@ -15,8 +16,9 @@ namespace Techamante.Patterns.CQS.Interfaces
 
     }
 
-    public interface ICommand<TResult> : ICommand where TResult : ICommandResult
+    public interface ICommand<out TResult> : IRequest<TResult>, ICommand
+        where TResult : ICommandResult
     {
-        TResult Result { get; }
+        //TResult Result { get; }
     }
 }

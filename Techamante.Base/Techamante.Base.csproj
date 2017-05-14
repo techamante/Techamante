@@ -35,13 +35,15 @@
     </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.6.4.1\lib\Net45\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="LinqKit, Version=1.1.8.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
       <HintPath>..\..\packages\LinqKit.1.1.8.0\lib\net461\LinqKit.dll</HintPath>
@@ -56,6 +58,9 @@
     <Reference Include="Mandrill, Version=2.4.173.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Mandrill.2.4.173\lib\net45\Mandrill.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -165,13 +170,25 @@
     <Compile Include="Core\Utilities.cs" />
     <Compile Include="Data\BaseEntity.cs" />
     <Compile Include="Data\DataTransferBase.cs" />
-    <Compile Include="Domain\Validations\ErrorMessage.cs" />
-    <Compile Include="Domain\Validations\IValidatable.cs" />
-    <Compile Include="Domain\Validations\IValidator.cs" />
-    <Compile Include="Domain\Validations\ValidationResult.cs" />
-    <Compile Include="Domain\Validations\Validator.cs" />
+    <Compile Include="Domain\Interfaces\IDomainEventDispatcher.cs" />
+    <Compile Include="Domain\Interfaces\IServiceResult.cs" />
+    <Compile Include="Domain\Validations\FluentValidationService.cs" />
+    <Compile Include="Domain\Validations\FluentValidatorFactory.cs" />
+    <Compile Include="Domain\Validations\IValidatorFactory.cs" />
+    <Compile Include="Domain\Validations\IValidatorService.cs" />
+    <Compile Include="Patterns\CQS\LoggingBehavior.cs" />
+    <Compile Include="Patterns\CQS\ValidatorBehavior.cs" />
+    <Compile Include="Patterns\AndSpecification.cs" />
+    <Compile Include="Patterns\AndExpressionSpecification.cs" />
     <Compile Include="Patterns\CQS\BaseCommand.cs" />
+    <Compile Include="Patterns\CQS\CommandExtensions.cs" />
     <Compile Include="Patterns\CQS\CommandHandler.cs" />
+    <Compile Include="Patterns\CQS\MediatorCommandDispatcher.cs" />
+    <Compile Include="Patterns\GenericSpecification.cs" />
+    <Compile Include="Patterns\ISpecification.cs" />
+    <Compile Include="Patterns\OrExpressionSpecification.cs" />
+    <Compile Include="Patterns\ExpressionSpecification.cs" />
+    <Compile Include="Patterns\SpecificationExtensions.cs" />
     <Compile Include="Web\ApiExceptionHandler.cs" />
     <Compile Include="Web\ApiExceptionLogger.cs" />
     <Compile Include="Web\BaseApiController.cs" />

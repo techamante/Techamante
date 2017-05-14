@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Techamante.Data.Interfaces;
+using Techamante.Domain.Interfaces;
 using Techamante.Domain.Validations;
 
 namespace Techamante.Data
@@ -15,6 +16,7 @@ namespace Techamante.Data
     {
         [NotMapped]
         public ObjectState ObjectState { get; set; }
+
 
     }
 }

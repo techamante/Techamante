@@ -10,7 +10,18 @@ namespace Techamante.SimpleInjector.Interception
         private static readonly ProxyGenerator generator = new ProxyGenerator();
 
         private static readonly Func<Type, object, IInterceptor, object> createProxy =
-            (p, t, i) => generator.CreateInterfaceProxyWithTarget(p, t, i);
+            (p, t, i) =>
+            {
+                if (p.IsInterface)
+                {
+                    return generator.CreateInterfaceProxyWithTarget(p, t, i);
+                }
+                else
+                {
+                    return generator.CreateClassProxyWithTarget(p, t, i);
+                }
+
+            };
 
         public static void InterceptWith<TInterceptor>(this Container c,
             Predicate<Type> predicate)

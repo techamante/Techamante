@@ -13,5 +13,7 @@ namespace Techamante.Core.Interfaces
         void Get<T>(Action<T> action) where T : class;
         void Load(params IPackage[] packages);
         T1 Map<T1, T2>(T2 t2);
+
+        IDisposable BeginScope();
     }
 }

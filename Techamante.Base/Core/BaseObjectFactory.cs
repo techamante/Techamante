@@ -5,6 +5,7 @@ using SimpleInjector.Packaging;
 using System.Collections.Generic;
 using Techamante.Core.Interfaces;
 using Techamante.Core.Extensions;
+using SimpleInjector.Lifestyles;
 
 namespace Techamante.Core
 {
@@ -61,6 +62,12 @@ namespace Techamante.Core
         }
 
         public IEnumerable<object> GetAll(Type type) => _container.GetAllInstances(type);
+
+
+        public IDisposable BeginScope()
+        {
+            return AsyncScopedLifestyle.BeginScope(this.Container);
+        }
 
     }
 }

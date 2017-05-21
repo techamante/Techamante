@@ -8,11 +8,12 @@ using System;
 using Techamante.Patterns.CQS.Interfaces;
 using Techamante.Patterns.CQS;
 using Techamante.Core;
+using SimpleInjector.Extensions.ExecutionContextScoping;
 
 namespace Techamante.Web
 {
 
-    public abstract class BaseApiController : ApiController
+    public abstract class BaseApiController : ApiController, IController
     {
         protected IQueryProcessor QueryProcessor { get; }
 
@@ -33,33 +34,42 @@ namespace Techamante.Web
             cmd.TimeStamp = DateTimeOffset.Now;
             try
             {
-                if (cmd is ICommand<ICommandResult>)
-                {
-                    var command = cmd as ICommand<ICommandResult>;
-                    var result = await Dispatcher.DispatchCommandAsync(command);
-                    if (result.IsSucceeded)
-                    {
-                        return Ok(result);
-                    }
-                    else
-                    {
-                        result.Errors.ToList().ForEach(err => ModelState.AddModelError("Error", err.Message));
-                        return BadRequest(ModelState);
-                    }
-                }
-                else if (cmd is ICommand)
-                {
-                    await Dispatcher.DispatchCommandAsync(cmd);
-                    return Ok();
-                }
-
-                return NotFound();
+                await Dispatcher.DispatchCommandAsync(cmd);
+                return Ok();
             }
-            catch
+            catch (Exception ex)
             {
                 //ModelState.AddModelError("ValidationError", ex.Message);
                 return BadRequest(ModelState);
             }
+        }
+
+
+        protected async Task<IHttpActionResult> Dispatch<TCommand, TCommandResult>(TCommand cmd)
+            where TCommand : class, ICommand<TCommandResult>
+            where TCommandResult : ICommandResult
+        {
+            cmd.UserId = UserId;
+            cmd.TimeStamp = DateTimeOffset.Now;
+            try
+            {
+                var result = await Dispatcher.DispatchCommandAsync<TCommandResult>(cmd);
+                if (result.IsSucceeded)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    result.Errors.ToList().ForEach(err => ModelState.AddModelError("Error", err.Message));
+                    return BadRequest(ModelState);
+                }
+            }
+            catch (Exception ex)
+            {
+                //ModelState.AddModelError("ValidationError", ex.Message);
+                return BadRequest(ModelState);
+            }
+
         }
 
         public async Task<IHttpActionResult> Query<TResult>(BaseQuery<TResult> query, QueryOptions options)

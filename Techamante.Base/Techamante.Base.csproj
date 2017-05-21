@@ -122,14 +122,14 @@
       <HintPath>..\..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.3.3.2\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.0.6.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.4.0.6\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.3.2\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.4.0.0\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Packaging, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Packaging.3.3.2\lib\net40-client\SimpleInjector.Packaging.dll</HintPath>
+    <Reference Include="SimpleInjector.Packaging, Version=4.0.6.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Packaging.4.0.6\lib\net40\SimpleInjector.Packaging.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -145,6 +145,7 @@
       <HintPath>..\..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -176,7 +177,13 @@
     <Compile Include="Domain\Validations\FluentValidatorFactory.cs" />
     <Compile Include="Domain\Validations\IValidatorFactory.cs" />
     <Compile Include="Domain\Validations\IValidatorService.cs" />
+    <Compile Include="Messaging\IBus.cs" />
+    <Compile Include="Messaging\IEvent.cs" />
+    <Compile Include="Messaging\IMessage.cs" />
+    <Compile Include="Messaging\Interface1.cs" />
+    <Compile Include="Messaging\Queue.cs" />
     <Compile Include="Patterns\CQS\LoggingBehavior.cs" />
+    <Compile Include="Patterns\CQS\UnitOfWorkBehavior.cs" />
     <Compile Include="Patterns\CQS\ValidatorBehavior.cs" />
     <Compile Include="Patterns\AndSpecification.cs" />
     <Compile Include="Patterns\AndExpressionSpecification.cs" />
@@ -195,7 +202,10 @@
     <Compile Include="Web\CommandActionValueBinder.cs" />
     <Compile Include="Web\CommandAttribute.cs" />
     <Compile Include="Web\CommandBindingHandler.cs" />
+    <Compile Include="Web\CommandModifierAttribute.cs" />
+    <Compile Include="Web\CommandModifierInterceptor.cs" />
     <Compile Include="Web\CustomDirectRouteProvider.cs" />
+    <Compile Include="Web\IController.cs" />
     <Compile Include="Web\QueryOptions.cs" />
     <Compile Include="Web\Rest\NameValueCollectionExtensions.cs" />
     <Compile Include="Core\Extensions\ObjectExtensions.cs" />

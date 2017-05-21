@@ -9,6 +9,9 @@ namespace Techamante.Patterns.CQS.Interfaces
     public interface ICommandDispatcher
     {
         Task DispatchCommandAsync<T>(T command) where T : class, ICommand;
-        Task<TResponse> DispatchCommandAsync<TResponse>(ICommand<TResponse> command) where TResponse : ICommandResult;
+        Task<TCommandResult> DispatchCommandAsync<TCommandResult>(ICommand<TCommandResult> command)
+            where TCommandResult : ICommandResult;
+
+
     }
 }

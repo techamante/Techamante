@@ -28,13 +28,13 @@ namespace Techamante.Patterns.CQS
             await Task.WhenAll(commandsTasks);
         }
 
-        public async Task<TResponse> DispatchCommandAsync<TResponse>(ICommand<TResponse> command)
-            where TResponse : ICommandResult
+        public async Task<TCommandResult> DispatchCommandAsync<TCommandResult>(ICommand<TCommandResult> command) where TCommandResult : ICommandResult
+
         {
-            var  handler = _objectFactory.Get<IAsyncCommandHandler<ICommand<TResponse>,TResponse>>();
-            if (handler == null) throw new NotSupportedException("Command not supported");          
+            var handler = _objectFactory.Get<IAsyncCommandHandler<ICommand<TCommandResult>, TCommandResult>>();
+            if (handler == null) throw new NotSupportedException("Command not supported");
             return await handler.Handle(command);
-            
+
         }
     }
 }

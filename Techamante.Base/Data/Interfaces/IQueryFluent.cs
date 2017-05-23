@@ -15,6 +15,9 @@ namespace Techamante.Data.Interfaces
         IEnumerable<TResult> Select<TResult>(Expression<Func<TEntity, TResult>> selector = null);
         Task<IEnumerable<TResult>> ProjectAsync<TResult>();
         IEnumerable<TEntity> Select();
+
+        IQueryable<TEntity> AsQueryable();
+
         Task<IEnumerable<TEntity>> SelectAsync();
         IQueryable<TEntity> SqlQuery(string query, params object[] parameters);
     }

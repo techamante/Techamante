@@ -32,9 +32,14 @@ namespace Techamante.Patterns.CQS
         public async Task<TResult> ProcessAsync<TResult>(IQuery<TResult> query)
         {
             var handlerType = typeof(IQueryHandlerAsync<,>).MakeGenericType(query.GetType(), typeof(TResult));
-            dynamic handler = _objectFactory.Get(handlerType);
-            var queryResult = await handler.ExecuteAsync((dynamic)query).ConfigureAwait(false);
-            return queryResult;
+            using (_objectFactory.BeginScope())
+            {
+
+                dynamic handler = _objectFactory.Get(handlerType);
+                var queryResult = await handler.ExecuteAsync((dynamic)query).ConfigureAwait(false);
+
+                return queryResult;
+            }
         }
     }
 }

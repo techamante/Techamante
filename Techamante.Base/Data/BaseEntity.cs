@@ -6,6 +6,7 @@ namespace Techamante.Data
 {
     public abstract class BaseEntity : Entity
     {
+        [Key]
         public int Id { get; set; }
 
         public Guid EntityGuid { get; set; }

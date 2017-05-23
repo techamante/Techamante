@@ -45,6 +45,12 @@
     <Reference Include="FluentValidation, Version=6.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentValidation.6.4.1\lib\Net45\FluentValidation.dll</HintPath>
     </Reference>
+    <Reference Include="GraphQL, Version=0.15.1.678, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\GraphQL.0.15.1.678\lib\net45\GraphQL.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphQL-Parser, Version=2.0.0.17, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\GraphQL-Parser.2.0.0\lib\net45\GraphQL-Parser.dll</HintPath>
+    </Reference>
     <Reference Include="LinqKit, Version=1.1.8.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
       <HintPath>..\..\packages\LinqKit.1.1.8.0\lib\net461\LinqKit.dll</HintPath>
     </Reference>
@@ -205,7 +211,13 @@
     <Compile Include="Web\CommandModifierAttribute.cs" />
     <Compile Include="Web\CommandModifierInterceptor.cs" />
     <Compile Include="Web\CustomDirectRouteProvider.cs" />
+    <Compile Include="Web\GraphQL\AbstractObjectGraphType.cs" />
+    <Compile Include="Web\GraphQL\GraphQLContext.cs" />
+    <Compile Include="Web\GraphQL\GraphQLProcessor.cs" />
+    <Compile Include="Web\GraphQL\GraphQLQuery.cs" />
+    <Compile Include="Web\GraphQL\ObjectGraphTypeExtensions.cs" />
     <Compile Include="Web\IController.cs" />
+    <Compile Include="Web\GraphQL\IGraphQLProcessor.cs" />
     <Compile Include="Web\QueryOptions.cs" />
     <Compile Include="Web\Rest\NameValueCollectionExtensions.cs" />
     <Compile Include="Core\Extensions\ObjectExtensions.cs" />

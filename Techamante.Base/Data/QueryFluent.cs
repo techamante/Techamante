@@ -58,5 +58,10 @@ namespace Techamante.Data
         {
             throw new NotImplementedException();
         }
+
+        public IQueryable<TEntity> AsQueryable()
+        {
+            return _repository.Select();
+        }
     }
 }

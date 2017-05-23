@@ -9,27 +9,34 @@ using Techamante.Patterns.CQS.Interfaces;
 using Techamante.Patterns.CQS;
 using Techamante.Core;
 using SimpleInjector.Extensions.ExecutionContextScoping;
+using System.Net.Http;
+using System.Web.Http.Results;
+using System.Text;
+using System.Net;
 
 namespace Techamante.Web
 {
 
-    public abstract class BaseApiController : ApiController, IController
+    public abstract class BaseApiController : ApiController
     {
         protected IQueryProcessor QueryProcessor { get; }
 
         protected ICommandDispatcher Dispatcher { get; }
 
+        protected IGraphQLProcessor GraphQLProcessor { get; }
+
         protected abstract int UserId { get; }
 
-
-        public BaseApiController(IQueryProcessor queryProcessor, ICommandDispatcher dispatcher)
+        public BaseApiController(IQueryProcessor queryProcessor = null, ICommandDispatcher dispatcher = null, IGraphQLProcessor graphQLProcessor = null)
         {
             QueryProcessor = queryProcessor;
             Dispatcher = dispatcher;
+            GraphQLProcessor = graphQLProcessor;
         }
 
         protected async Task<IHttpActionResult> Dispatch<TCommand>(TCommand cmd) where TCommand : class, ICommand
         {
+            if (Dispatcher == null) throw new NotSupportedException("Command Dispatcher is not supported by default");
             cmd.UserId = UserId;
             cmd.TimeStamp = DateTimeOffset.Now;
             try
@@ -44,11 +51,11 @@ namespace Techamante.Web
             }
         }
 
-
         protected async Task<IHttpActionResult> Dispatch<TCommand, TCommandResult>(TCommand cmd)
             where TCommand : class, ICommand<TCommandResult>
             where TCommandResult : ICommandResult
         {
+            if (Dispatcher == null) throw new NotSupportedException("Command Dispatcher is not supported by default");
             cmd.UserId = UserId;
             cmd.TimeStamp = DateTimeOffset.Now;
             try
@@ -72,9 +79,11 @@ namespace Techamante.Web
 
         }
 
-        public async Task<IHttpActionResult> Query<TResult>(BaseQuery<TResult> query, QueryOptions options)
+        protected async Task<IHttpActionResult> Query<TResult>(BaseQuery<TResult> query, QueryOptions options = null)
         {
-            query.Options = Mapper.Map<Patterns.CQS.QueryOptions>(options);
+            if (QueryProcessor == null) throw new NotSupportedException("Query processing is not supported by default");
+            var queryOptions = options == null ? new Patterns.CQS.QueryOptions() : Mapper.Map<Patterns.CQS.QueryOptions>(options);
+            query.Options = queryOptions;
             query.UserId = UserId;
             query.TimeStamp = DateTimeOffset.Now;
             try
@@ -90,6 +99,22 @@ namespace Techamante.Web
             {
                 return InternalServerError();
             }
+        }
+
+        protected async Task<HttpResponseMessage> QueryGraphQLAsync(GraphQLQuery query)
+        {
+            if (GraphQLProcessor == null) throw new NotSupportedException("Graph QL processing is not supported by default");
+            var request = ControllerContext.Request;
+            var context = new GraphQLContext(UserId);
+            var result = await GraphQLProcessor.ExecuteAsync(context, query);
+
+            var httpResult = result.Errors?.Count > 0
+               ? HttpStatusCode.BadRequest
+               : HttpStatusCode.OK;
+
+            var response = request.CreateResponse(httpResult);
+            response.Content = new StringContent(GraphQLProcessor.ExtractContent(result), Encoding.UTF8, "application/json");
+            return response;
         }
 
         protected override void Dispose(bool disposing)

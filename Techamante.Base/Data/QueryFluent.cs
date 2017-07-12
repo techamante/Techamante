@@ -1,5 +1,7 @@
-﻿using System;
+﻿using AutoMapper.QueryableExtensions;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -54,9 +56,9 @@ namespace Techamante.Data
 
         public IQueryable<TEntity> SqlQuery(string query, params object[] parameters) { return _repository.SelectQuery(query, parameters).AsQueryable(); }
 
-        public Task<IEnumerable<TResult>> ProjectAsync<TResult>()
+        public async Task<IEnumerable<TResult>> ProjectAsync<TResult>()
         {
-            throw new NotImplementedException();
+            return await _repository.Queryable().ProjectTo<TResult>().ToListAsync();
         }
 
         public IQueryable<TEntity> AsQueryable()

@@ -22,9 +22,10 @@ namespace Techamante.Patterns.CQS
         {
             var context = new ValidationContext(request);
 
-            var failures = _validators
-                .Select(v => v.Validate(context))
-                .SelectMany(result => result.Errors);
+            var validatorsTasks = _validators
+                .Select(async v => await v.ValidateAsync(context));
+
+            var failures = Task.WhenAll(validatorsTasks).Result.SelectMany(x => x.Errors);
 
             if (failures.Any())
                 throw new ValidationException(failures);
